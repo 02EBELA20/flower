@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flowers for Flowers - Luxury Flower Shop</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+<body>
+    <header>
+        <div id="particles-js"></div>
+        <nav>
+            <div class="logo">
+                <h1 class="logo-text">Flowers for Flowers</h1>
+            </div>
+            <ul>
+                <li style="--index: 1;" class="dropdown">
+                    <a href="#home" class="dropbtn">Home</a>
+                    <div class="dropdown-content">
+                        <a href="shop.html">Shop</a>
+                        <a href="#special-offers">Special Offers</a>
+                        <a href="wedding-collection.html">Wedding Collection</a>
+                    </div>
+                </li>
+                <li style="--index: 2;" class="dropdown">
+                    <a href="shop.html" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="shop.html?category=roses">Roses</a>
+                        <a href="shop.html?category=lilies">Lilies</a>
+                        <a href="shop.html?category=tulips">Tulips</a>
+                        <a href="shop.html?category=orchids">Orchids</a>
+                        <a href="shop.html?category=mixed">Mixed</a>
+                    </div>
+                </li>
+                <li style="--index: 3;"><a href="about.html">About</a></li>
+                <li style="--index: 4;"><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.pinterest.com" target="_blank" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </nav>
+    </header>
+
+  
+    <section id="special-offers">
+        <h2>Special Offers</h2>
+        <div class="offers-grid">
+            <div class="offer-item">
+                <img src="https://images.unsplash.com/photo-1509266272358-7701da638078?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Valentine's Day Special" class="photos">
+                <div class="offer-content">
+                    <h3>Valentine's Day Special</h3>
+                    <div class="price-container">
+                        <span class="old-price">$150</span>
+                        <span class="new-price">$120</span>
+                    </div>
+                    <a href="order.html?product=valentines-special" class="luxury-btn">Shop Now</a>
+                </div>
+            </div>
+            <div class="offer-item">
+                <img src="img/logo1.jpg" alt="Wedding Collection" class="photos">
+                <div class="offer-content">
+                    <h3>Wedding Collection</h3>
+                    <div class="price-container">
+                        <span class="old-price">$200</span>
+                        <span class="new-price">$180</span>
+                    </div>
+                    <a href="order.html?product=wedding-collection" class="luxury-btn">Shop Now</a>
+                </div>
+            </div>
+            <div class="offer-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Limited Edition Bouquet" class="photos">
+                <div class="offer-content">
+                    <h3>Limited Edition Bouquet</h3>
+                    <div class="price-container">
+                        <span class="old-price">$120</span>
+                        <span class="new-price">$100</span>
+                    </div>
+                    <a href="order.html?product=limited-edition" class="luxury-btn">Shop Now</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="shop">
+        <h2>Our Exclusive Collection</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn">←</button>
+            <div class="carousel">
+                <a href="order.html?product=luxury-tulips" class="carousel-item">
+                    <div class="carousel-content">
+                        <img class="photos" src="img/backgr1.jpg" alt="">
+                        <h3>Luxury Tulips</h3>
+                        <p>These tulips bring a touch of sophistication to any occasion.</p>
+                        <p class="price">$100</p>
+                    </div>
+                </a>
+                <a href="order.html?product=luxury-tulips" class="carousel-item">
+                    <div class="carousel-content">
+                        <img class="photos" src="img/backgr2.jpg" alt="">
+                        <h3>Luxury Tulips</h3>
+                        <p>These tulips bring a touch of sophistication to any occasion.</p>
+                        <p class="price">$100</p>
+                    </div>
+                </a>
+            </div>
+            <button class="carousel-btn next-btn">→</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Flowers for Flowers. A Premium Experience.</p>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.pinterest.com" target="_blank" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

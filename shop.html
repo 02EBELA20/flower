@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Flowers for Flowers</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="particles-js"></div>
+        <nav>
+            <div class="logo">
+                <h1 class="logo-text">Flowers for Flowers</h1>
+            </div>
+            <ul>
+                <li style="--index: 1;" class="dropdown">
+                    <a href="index.html#home" class="dropbtn">Home</a>
+                    <div class="dropdown-content">
+                        <a href="shop.html">Shop</a>
+                        <a href="index.html#special-offers">Special Offers</a>
+                        <a href="wedding-collection.html">Wedding Collection</a>
+                    </div>
+                </li>
+                <li style="--index: 2;" class="dropdown">
+                    <a href="shop.html" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="shop.html?category=roses">Roses</a>
+                        <a href="shop.html?category=lilies">Lilies</a>
+                        <a href="shop.html?category=tulips">Tulips</a>
+                        <a href="shop.html?category=orchids">Orchids</a>
+                        <a href="shop.html?category=mixed">Mixed</a>
+                    </div>
+                </li>
+                <li style="--index: 3;"><a href="about.html">About</a></li>
+                <li style="--index: 4;"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="shop-page">
+        <h2>Shop Our Collection</h2>
+        <div class="filter-search">
+            <div class="filter">
+                <label for="category-filter">Filter by Category:</label>
+                <select id="category-filter">
+                    <option value="all">All</option>
+                    <option value="roses">Roses</option>
+                    <option value="lilies">Lilies</option>
+                    <option value="tulips">Tulips</option>
+                    <option value="orchids">Orchids</option>
+                    <option value="mixed">Mixed</option>
+                </select>
+            </div>
+            <div class="filter">
+                <label for="offer-filter">Show Special Offers:</label>
+                <input type="checkbox" id="offer-filter">
+            </div>
+            <div class="search">
+                <input type="text" id="search-bar" placeholder="Search bouquets...">
+            </div>
+        </div>
+        <div class="shop-grid">
+            <!-- Special Offer Items -->
+            <div class="shop-item" data-category="roses" data-offer="true">
+                <img src="https://images.unsplash.com/photo-1509266272358-7701da638078?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Valentine's Day Special">
+                <div class="shop-content">
+                    <h3>Valentine's Day Special</h3>
+                    <p>A romantic bouquet of roses for your loved one.</p>
+                    <div class="price-container">
+                        <span class="old-price">$150</span>
+                        <span class="new-price">$120</span>
+                    </div>
+                    <a href="order.html?product=valentines-special" class="luxury-btn">Order Now</a>
+                </div>
+            </div>
+            <div class="shop-item" data-category="mixed" data-offer="true">
+                <img src="img/logo1.jpg" alt="Wedding Collection">
+                <div class="shop-content">
+                    <h3>Wedding Collection</h3>
+                    <p>Perfect bouquet for your special day.</p>
+                    <div class="price-container">
+                        <span class="old-price">$200</span>
+                        <span class="new-price">$180</span>
+                    </div>
+                    <a href="order.html?product=wedding-collection" class="luxury-btn">Order Now</a>
+                </div>
+            </div>
+            <div class="shop-item" data-category="tulips" data-offer="true">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Limited Edition Bouquet">
+                <div class="shop-content">
+                    <h3>Limited Edition Bouquet</h3>
+                    <p>A unique arrangement of tulips.</p>
+                    <div class="price-container">
+                        <span class="old-price">$120</span>
+                        <span class="new-price">$100</span>
+                    </div>
+                    <a href="order.html?product=limited-edition" class="luxury-btn">Order Now</a>
+                </div>
+            </div>
+            <!-- Regular Items -->
+            <div class="shop-item" data-category="roses">
+                <img src="https://images.unsplash.com/photo-1509266272358-7701da638078?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Enchanted Roses">
+                <div class="shop-content">
+                    <h3>Enchanted Roses</h3>
+                    <p>Handpicked for perfection, these roses exude timeless elegance.</p>
+                    <p class="price">$120</p>
+                    <a href="order.html?product=enchanted-roses" class="luxury-btn">Order Now</a>
+                </div>
+            </div>
+            <div class="shop-item" data-category="lilies">
+                <img src="https://images.unsplash.com/photo-1599508704512-2f19efd3e35f?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Elegant Lilies">
+                <div class="shop-content">
+                    <h3>Elegant Lilies</h3>
+                    <p>A bouquet of lilies that symbolizes purity and grace.</p>
+                    <p class="price">$150</p>
+                    <a href="order.html?product=elegant-lilies" class="luxury-btn">Order Now</a>
+                </div>
+            </div>
+            <div class="shop-item" data-category="tulips">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxury Tulips">
+                <div class="shop-content">
+                    <h3>Luxury Tulips</h3>
+                    <p>These tulips bring a touch of sophistication to any occasion.</p>
+                    <p class="price">$100</p>
+                    <a href="order.html?product=luxury-tulips" class="luxury-btn">Order Now</a>
+                </div>
+            </div>
+            <div class="shop-item" data-category="orchids">
+                <img src="https://images.unsplash.com/photo-1611174743010-1f9a993de786?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Exotic Orchids">
+                <div class="shop-content">
+                    <h3>Exotic Orchids</h3>
+                    <p>Orchids that add a touch of exotic beauty to your space.</p>
+                    <p class="price">$180</p>
+                    <a href="order.html?product=exotic-orchids" class="luxury-btn">Order Now</a>
+                </div>
+            </div>
+            <div class="shop-item" data-category="mixed">
+                <img src="https://images.unsplash.com/photo-1589994242161-2b0b5e1a4d9f?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mixed Bouquet">
+                <div class="shop-content">
+                    <h3>Mixed Bouquet</h3>
+                    <p>A vibrant mix of flowers for any occasion.</p>
+                    <p class="price">$130</p>
+                    <a href="order.html?product=mixed-bouquet" class="luxury-btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Flowers for Flowers. A Premium Experience.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

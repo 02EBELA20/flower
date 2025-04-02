@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - Flowers for Flowers</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="particles-js"></div>
+        <nav>
+            <div class="logo">
+                <h1 class="logo-text">Flowers for Flowers</h1>
+            </div>
+            <ul>
+                <li style="--index: 1;" class="dropdown">
+                    <a href="#home" class="dropbtn">Home</a>
+                    <div class="dropdown-content">
+                        <a href="#shop">Shop</a>
+                        <a href="#special-offers">Special Offers</a>
+                        <a href="wedding-collection.html">Wedding Collection</a>
+                    </div>
+                </li>
+                <li style="--index: 2;" class="dropdown">
+                    <a href="#shop" class="dropbtn">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="#">Roses</a>
+                        <a href="#">Lilies</a>
+                        <a href="#">Tulips</a>
+                        <a href="#">Orchids</a>
+                    </div>
+                </li>
+                <li style="--index: 3;"><a href="about.html">About</a></li>
+                <li style="--index: 4;"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="order-page">
+        <h2>Place Your Order</h2>
+        <div class="order-container">
+            <div class="product-preview">
+                <img id="product-image" src="" alt="Product Image">
+                <h3 id="product-name"></h3>
+                <p id="product-price" class="price"></p>
+            </div>
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="surname">Surname *</label>
+                    <input type="text" id="surname" name="surname" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Delivery Address *</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (Optional)</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="note">Add a Note (Optional)</label>
+                    <textarea id="note" name="note" rows="4"></textarea>
+                </div>
+                <button type="submit" class="luxury-btn">Place Order</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Flowers for Flowers. A Premium Experience.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
