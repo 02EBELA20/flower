@@ -1,0 +1,357 @@
+/* გლობალური სტილები */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Chrome, Safari, Edge-ისთვის */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  margin-top: 5%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background: #0d0d0d;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  border-bottom: 1px solid #d4af37;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: -10px;
+}
+
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 50px;
+  color: red;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: scaleUp 0.8s ease forwards;
+}
+
+@keyframes scaleUp {
+  from {
+      opacity: 0;
+      transform: scale(0.5);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+ul li {
+  margin-left: 40px;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(0.2s * var(--index));
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+ul li a {
+  text-decoration: none;
+  color: rgb(0, 208, 255);
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+ul li a:hover {
+  color: #d4af37;
+}
+
+ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+ul li a:hover::after {
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  border-radius: 5px;
+  border: 1px solid #d4af37;
+}
+    
+.dropdown-content a {
+  color: red;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dropdown-content a:hover {
+  background-color: #d4af37;
+  color: #1a1a1a;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #d4af37;
+  font-size: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #b8972e;
+}
+
+/* WhatsApp-ის ხატულის სტილი */
+.social-icon.fa-whatsapp {
+  color: #25D366;
+}
+
+.social-icon.fa-whatsapp:hover {
+  color: #fff;
+}
+
+/* Header Social Icons */
+header .social-icons {
+  width: 79px;
+  position: absolute;
+  right: -132px;
+  top: -9%;
+  transform: translateY(-50%);
+}
+
+/* About Section */
+#about {
+  padding: 100px 20px;
+  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-family: 'Cinzel', serif;
+  font-size: 42px;
+  color: #d4af37;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInDown 1s ease forwards;
+}
+
+.about-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  color: #d4af37;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInDown 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.about-content p {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: calc(0.3s * var(--index));
+}
+
+/* About-ის პირველი ნაწილის პარაგრაფები */
+.about-content:nth-child(2) p:nth-child(1) { --index: 1; }
+.about-content:nth-child(2) p:nth-child(2) { --index: 2; }
+.about-content:nth-child(2) p:nth-child(3) { --index: 3; }
+
+/* Ordering and Delivery-ის პარაგრაფები */
+.about-content:nth-child(4) p:nth-child(1) { --index: 4; }
+.about-content:nth-child(4) p:nth-child(2) { --index: 5; }
+.about-content:nth-child(4) p:nth-child(3) { --index: 6; }
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Hover ეფექტი About-ის პარაგრაფებზე */
+.about-content p:hover {
+  color: #d4af37;
+  transform: scale(1.02);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+     background-color: #0d0d0d;
+  ;
+  color: #d4af37;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  border-top: 1px solid #d4af37;
+}
+
+footer .social-icons {
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo-text {
+      font-size: 30px;
+  }
+
+  nav {
+      padding-left: 5px;
+  }
+
+  .logo {
+      margin-left: 0;
+  }
+
+  ul li {
+      margin-left: 20px;
+  }
+
+  ul li a {
+      font-size: 16px;
+  }
+
+  .about-title {
+      font-size: 32px;
+  }
+
+  .about-subtitle {
+      font-size: 24px;
+  }
+
+  .about-content p {
+      font-size: 16px;
+  }
+}
