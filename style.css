@@ -43,6 +43,8 @@ nav {
   padding-left: 10px;
 }
 
+
+
 .logo {
   display: flex;
   align-items: center;
@@ -52,8 +54,9 @@ nav {
 .logo-text {
   font-family: 'Cinzel', serif;
   font-size: 50px;
-  color: #d4af37;
+  color: red;
   text-transform: uppercase;
+  text-decoration: none;
   letter-spacing: 2px;
   opacity: 0;
   animation: scaleUp 0.8s ease forwards;
@@ -97,9 +100,9 @@ ul li {
 
 ul li a {
   text-decoration: none;
-  color: #fff;
+  color: rgb(0, 208, 255);
   font-family: 'Playfair Display', serif;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 18px;
   position: relative;
   transition: color 0.3s ease;
@@ -142,7 +145,7 @@ ul li a:hover::after {
 }
 
 .dropdown-content a {
-  color: #fff;
+  color: red;
   padding: 12px 20px;
   text-decoration: none;
   display: block;
@@ -258,7 +261,8 @@ ul li a:hover::after {
 }
 
 #shop {
-  padding: 30px 20px;
+  padding: 40px 20px;
+  padding-bottom: 50px;
   text-align: center;
   background-color: #0d0d0d;
 }
@@ -267,7 +271,7 @@ ul li a:hover::after {
   font-family: 'Cinzel', serif;
   font-size: 30px;
   color: #d4af37;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -374,48 +378,6 @@ ul li a:hover::after {
   right: 30px;
 }
 
-/* Social Media Icons */
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.social-icon {
-  color: #d4af37;
-  font-size: 20px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.2);
-  color: #b8972e;
-}
-
-/* Header Social Icons */
-header .social-icons {
-  width: 79px;
-  position: absolute;
-  right: -132px;
-  top: -9%;
-  transform: translateY(-50%);
-}
-
-/* Footer Social Icons */
-footer .social-icons {
-  justify-content: center;
-  margin-top: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
-  color: #d4af37;
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-  border-top: 1px solid #d4af37;
-}
 
 .photos {
   width: 250px;
@@ -490,5 +452,200 @@ footer {
   transform: translateY(-50%) scale(1.1); /* ისრის hover ეფექტი უცვლელი */
 }
 
+/* Q&A*/
+
+/* FAQ Section */
+#faq {
+  padding: 60px 20px;
+  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
+  color: #fff;
+  text-align: center;
+}
+
+#faq h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 40px;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d4af37;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin: 0;
+  color: #d4af37;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  color: #d4af37;
+}
+
+.faq-answer {
+  display: none;
+  padding: 10px 0;
+  text-align: left;
+}
+
+.faq-answer p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #ccc;
+  margin: 0;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-item.active .faq-toggle {
+  content: '-';
+}
 
 
+/* რეგისტრაცია  */
+/* Register Section */
+#register {
+  padding: 60px 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+}
+
+#register h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 40px;
+}
+
+.register-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #d4af37;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  border: 1px solid #d4af37;
+  background-color: #2e2e2e;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+.luxury-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #d4af37;
+  color: #1a1a1a;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.luxury-btn:hover {
+  background-color: #b8972d;
+}
+
+.login-link {
+  margin-top: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #ccc;
+}
+
+.login-link a {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #d4af37;
+  font-size: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #b8972e;
+}
+
+/* Header Social Icons */
+header .social-icons {
+  width: 79px;
+  position: absolute;
+  right: -132px;
+  top: -9%;
+  transform: translateY(-50%);
+}
+
+/* Footer Social Icons */
+footer .social-icons {
+  justify-content: center;
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
+  color: #d4af37;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  border-top: 1px solid #d4af37;
+}

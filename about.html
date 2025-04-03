@@ -1,55 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Flowers for Flowers</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flowers for Flowers - Luxury Flower Shop</title>
+        <link rel="stylesheet" href="about.css">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
 <body>
-    <header>
-        <div id="particles-js"></div>
-        <nav>
-            <div class="logo">
-                <h1 class="logo-text">Flowers for Flowers</h1>
-            </div>
-            <ul>
-                <li style="--index: 1;"><a href="index.html">Home</a></li>
-                <li style="--index: 2;" class="dropdown">
-                    <a href="shop.html" class="dropbtn">Shop</a>
-                    <div class="dropdown-content">
-                        <a href="shop.html?category=roses">Roses</a>
-                        <a href="shop.html?category=lilies">Lilies</a>
-                        <a href="shop.html?category=tulips">Tulips</a>
-                        <a href="shop.html?category=orchids">Orchids</a>
-                    </div>
-                </li>
-                <li style="--index: 3;"><a href="bouquets.html">Bouquets</a></li>
-                <li style="--index: 4;"><a href="special-offers.html">Special Offers</a></li>
-                <li style="--index: 5;"><a href="about.html">About</a></li>
-                <li style="--index: 6;"><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="page-wrapper">
+        <header>
+            <div id="particles-js"></div>
+            <nav>
+                <div class="logo">
+                    <a href="index.html" class="logo-text">Flowers For Flowers</a>
+                </div>
+                <ul>
+                    <li style="--index: 1;"><a href="special-offers.html">special-offers</a></li>
+                    <li style="--index: 2;" class="dropdown">
+                        <a href="shop.html" class="dropbtn">Shop</a>
+                        <div class="dropdown-content">
+                            <a href="shop.html?category=roses">Roses</a>
+                            <a href="shop.html?category=lilies">Lilies</a>
+                            <a href="shop.html?category=tulips">Tulips</a>
+                            <a href="shop.html?category=orchids">Orchids</a>
+                            <a href="shop.html?category=mixed">Mixed</a>
+                        </div>
+                    </li>
+                    <li style="--index: 3;"><a href="about.html">About</a></li>
+                    <li style="--index: 4;"><a href="contact.html">Contact</a></li>
+                </ul>
+                <!-- Social Media Icons -->
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.pinterest.com" target="_blank" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </nav>
+        </header>
 
-    <section id="about-page">
-        <h2>About Flowers for Flowers</h2>
-        <div class="about-content">
-            <img src="https://images.unsplash.com/photo-1509266272358-7701da638078?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="About Us">
-            <div class="about-text">
-                <p>Founded in 2015, Flowers for Flowers is a luxury flower shop dedicated to bringing the finest blooms to your doorstep. Our passion for flowers drives us to curate exquisite bouquets that celebrate life’s most beautiful moments.</p>
-                <p>From handpicked roses to exotic orchids, every arrangement is crafted with care and precision by our expert florists. We believe in the power of flowers to convey emotions, and we strive to make every delivery a memorable experience.</p>
-                <p>Visit us today and discover the magic of flowers!</p>
+        <!-- About სექცია -->
+        <section id="about">
+            <div class="about-container">
+                <h2 class="about-title">About Our Shop</h2>
+                <div class="about-content">
+                    <p>We are an online flower shop offering the most beautiful bouquets, crafted with love and care to add color and joy to your special moments. Our mission is to provide you with high-quality flowers that perfectly express your emotions—whether it’s a birthday, a declaration of love, or simply making a friend smile.</p>
+                    <p>Currently, we operate solely online, but my big dream is to one day open my own flower shop—a place where everyone who walks in feels a sense of joy and warmth. Each order you place brings me one step closer to that dream.</p>
+                    <p>Every customer is truly special to us, and we’re so grateful to have you as part of our shop’s story.</p>
+                </div>
+
+                <!-- Ordering and Delivery Subsection -->
+                <h3 class="about-subtitle">Ordering and Delivery</h3>
+                <div class="about-content">
+                    <p>To place an order, simply reach out to us via the contact number provided or through our social media channels. We’ll guide you through the process to ensure your bouquet is perfect for your occasion.</p>
+                    <p>Delivery typically takes 24-48 hours from the time of your order. For those in a hurry, we also offer expedited delivery options. The delivery fee depends on the distance and timing, which you can confirm during the ordering process.</p>
+                    <p>We’re here to make your experience seamless—feel free to clarify any details when placing your order!</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <footer>
         <p>© 2025 Flowers for Flowers. A Premium Experience.</p>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/1234567890" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+    <script src="about.js"></script>
 </body>
 </html>

@@ -176,3 +176,64 @@ particlesJS('particles-js', {
         }
     }
 });
+
+// Q & A
+// FAQ Accordion
+document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const toggle = item.querySelector('.faq-toggle');
+
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all other FAQ items
+            faqItems.forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.faq-toggle').textContent = '+';
+            });
+
+            // Toggle the clicked item
+            if (!isActive) {
+                item.classList.add('active');
+                toggle.textContent = '-';
+            }
+        });
+    });
+});
+
+// რეგისტრაცია 
+
+function handleRegister(event) {
+    event.preventDefault();
+
+    const fullName = document.getElementById('full-name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Basic validation
+    if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    if (password.length < 6) {
+        alert('Password must be at least 6 characters long!');
+        return;
+    }
+
+    // Simulate saving user data (in a real app, this would be sent to a backend)
+    const user = {
+        fullName,
+        email,
+        password,
+    };
+
+    // Save to localStorage for demo purposes
+    localStorage.setItem('user', JSON.stringify(user));
+    alert('Registration successful! You can now log in.');
+    window.location.href = 'login.html'; // Redirect to login page
+}
