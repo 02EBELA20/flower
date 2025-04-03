@@ -538,7 +538,7 @@ footer .social-icons {
   .contact-social-link {
       font-size: 16px;
   }
-}
+}   
 
 @media (max-width: 480px) {
   .contact-info-container {
@@ -557,4 +557,4 @@ footer .social-icons {
       flex-wrap: wrap;
       gap: 10px;
   }
-}
+} 
