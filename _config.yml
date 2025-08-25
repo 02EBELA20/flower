@@ -1,3 +1,5 @@
 remote_theme: pages-themes/primer
 title: my site
-exclude: [node_modules]
+exclude:
+  - node_modules
+  - backend
