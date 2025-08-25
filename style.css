@@ -1,651 +1,213 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ========================================= */
+/* ===== მთავარი გვერდის უნიკალური სტილები ===== */
+/* ========================================= */
+
+/* სექციების ზოგადი სტილი */
+section {
+    padding: 80px 20px;
+    text-align: center;
 }
 
-body {
-  background-color: #0d0d0d;
-  color: #fff;
-  line-height: 1.6;
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
-}
-
-header {
-  background: #0d0d0d;
-  padding: 20px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  border-bottom: 1px solid #d4af37;
-}
-
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-nav {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-left: 10px;
-}
-
-
-
-.logo {
-  display: flex;
-  align-items: center;
-  margin-left: -10px;
-}
-
-.logo-text {
-  font-family: 'Cinzel', serif;
-  font-size: 50px;
-  color: red;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: scaleUp 0.8s ease forwards;
-}
-
-@keyframes scaleUp {
-  from {
-      opacity: 0;
-      transform: scale(0.5);
-  }
-  to {
-      opacity: 1;
-      transform: scale(1);
-  }
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-ul li {
-  margin-left: 40px;
-  position: relative;
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
-  animation-delay: calc(0.2s * var(--index));
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(-10px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-ul li a {
-  text-decoration: none;
-  color: rgb(0, 208, 255);
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 18px;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-ul li a:hover {
-  color: #d4af37;
-}
-
-ul li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #d4af37;
-  bottom: -5px;
-  left: 0;
-  transition: width 0.3s ease;
-}
-
-ul li a:hover::after {
-  width: 100%;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
-  min-width: 200px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  z-index: 1;
-  top: 100%;
-  left: 0;
-  border-radius: 5px;
-  border: 1px solid #d4af37;
-}
-
-.dropdown-content a {
-  color: red;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.dropdown-content a:hover {
-  background-color: #d4af37;
-  color: #1a1a1a;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
+/* Special Offers სექცია */
 #special-offers {
-  margin-top: 5%;
-  padding: 100px 20px;
-  text-align: center;
-  background-color: #0d0d0d;
-  background: url('img/backgr.jpg');
-  height: 100vh;
+    background: #0d0d0d;
 }
 
-#special-offers h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 42px;
-  color: #d4af37;
-  margin-bottom: 60px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+#special-offers h2, #shop h2, #faq h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    color: #d4af37;
+    margin-bottom: 40px;
+    text-transform: uppercase;
 }
 
 .offers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .offer-item {
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #222;
 }
 
 .offer-item:hover {
-  transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .offer-item img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
 .offer-content {
-  padding: 20px;
-  background: #1a1a1a;
-  text-align: center;
+    padding: 20px;
 }
 
 .offer-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  color: #d4af37;
-  margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 .price-container {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .old-price {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  color: #888;
-  text-decoration: line-through;
-  margin-right: 10px;
+    font-size: 16px;
+    color: #888;
+    text-decoration: line-through;
+    margin-right: 10px;
 }
 
 .new-price {
-  font-family: 'Cinzel', serif;
-  font-size: 20px;
-  color: #d4af37;
-  font-weight: 700;
+    font-size: 20px;
+    color: #d4af37;
+    font-weight: bold;
 }
 
-.luxury-btn {
-  padding: 15px 40px;
-  background: linear-gradient(90deg, #d4af37, #b8972e);
-  border: none;
-  color: #1a1a1a;
-  font-size: 18px;
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 30px;
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.luxury-btn:hover {
-  transform: scale(1.1);
-  background: linear-gradient(90deg, #b8972e, #d4af37);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-}
-
+/* Shop (Carousel) სექცია */
 #shop {
-  padding: 40px 20px;
-  padding-bottom: 50px;
-  text-align: center;
-  background-color: #0d0d0d;
-}
-
-#shop h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 30px;
-  color: #d4af37;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    background: #1a1a1a;
 }
 
 .carousel-container {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 }
 
 .carousel {
-  display: flex;
-  align-items: center;
-  transition: transform 0.5s ease-in-out;
-  width: max-content;
-}
-
-.carousel-container {
-  margin-bottom: 3%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
-  flex: 0 0 350px;
-  margin: 0 20px;
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  background: #1a1a1a;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
-  z-index: 1; /* Default z-index */
+    min-width: 300px;
+    margin: 0 20px;
+    background: #0d0d0d;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease;
 }
 
-.carousel-item.center {
-  transform: scale(1.2);
-  opacity: 1;
-  z-index: 10;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Enhanced shadow for the center item */
+.carousel-item:hover {
+    transform: scale(1.05);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .carousel-content {
-  padding: 20px;
-  text-align: center;
-}
-
-.carousel-content img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 15px 15px 0 0; /* Ensure border radius is preserved */
+    padding: 20px;
 }
 
 .carousel-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  color: #d4af37;
-  margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .carousel-content p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  color: #fff;
-  margin-bottom: 10px;
+    font-size: 14px;
+    color: #ccc;
+    min-height: 60px;
 }
 
-.carousel-content .price {
-  font-family: 'Cinzel', serif;
-  font-size: 18px;
-  color: #d4af37;
-  font-weight: 700;
+.price {
+    font-size: 18px;
+    color: #d4af37;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 .carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(90deg, #d4af37, #b8972e);
-  border: none;
-  color: #1a1a1a;
-  font-size: 24px;
-  padding: 12px 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-  z-index: 20;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(212, 175, 55, 0.8);
+    color: #0d0d0d;
+    border: none;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.carousel-btn:hover {
-  background: linear-gradient(90deg, #b8972e, #d4af37);
-  transform: translateY(-50%) scale(1.1);
-}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
 
-.prev-btn {
-  left: 30px;
-}
-
-.next-btn {
-  right: 30px;
-}
-
-
-.photos {
-  width: 250px;
-}
-
-@media (max-width: 768px) {
-  .logo-text {
-      font-size: 30px;
-  }
-
-  nav {
-      padding-left: 5px;
-  }
-
-  .logo {
-      margin-left: 0;
-  }
-
-  ul li {
-      margin-left: 20px;
-  }
-
-  ul li a {
-      font-size: 16px;
-  }
-
-  .carousel-item {
-      flex: 0 0 300px;
-  }
-}
-.carousel-container {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden; /* დავმალოთ გადამეტებული ელემენტები */
-}
-
-.carousel {
-  display: flex; /* ჰორიზონტალური განლაგება */
-  transition: transform 0.5s ease-in-out; /* გლუვი გადასვლა */
-}
-
-
-.carousel-item:hover {
-  transform: scale(1.1); /* ზრდა 1.1-ჯერ hover-ისას */
-}
-
-.carousel-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  color: #d4af37;
-  margin-bottom: 10px;
-}
-
-.carousel-content p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 13px;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.carousel-content .price {
-  font-family: 'Cinzel', serif;
-  font-size: 18px;
-  color: #d4af37;
-  font-weight: 700;
-}
-
-
-.carousel-btn:hover {
-  background: linear-gradient(90deg, #b8972e, #d4af37);
-  transform: translateY(-50%) scale(1.1); /* ისრის hover ეფექტი უცვლელი */
-}
-
-/* Q&A*/
-
-/* FAQ Section */
+/* FAQ სექცია */
 #faq {
-  padding: 60px 20px;
-  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
-  color: #fff;
-  text-align: center;
-}
-
-#faq h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.5rem;
-  color: #d4af37;
-  margin-bottom: 40px;
+    background: #0d0d0d;
 }
 
 .faq-container {
-  max-width: 800px;
-  margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .faq-item {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #d4af37;
+    background: #1a1a1a;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 3px solid #d4af37;
 }
 
 .faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-  cursor: pointer;
-}
-
-.faq-question h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  margin: 0;
-  color: #d4af37;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
 }
 
 .faq-toggle {
-  font-size: 1.5rem;
-  color: #d4af37;
+    font-size: 24px;
+    color: #d4af37;
+    transition: transform 0.3s ease;
 }
 
 .faq-answer {
-  display: none;
-  padding: 10px 0;
-  text-align: left;
-}
-
-.faq-answer p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  color: #ccc;
-  margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 20px;
+    color: #ccc;
 }
 
 .faq-item.active .faq-answer {
-  display: block;
+    max-height: 200px; /* Adjust as needed */
+    padding: 0 20px 20px;
 }
 
 .faq-item.active .faq-toggle {
-  content: '-';
+    transform: rotate(45deg);
 }
 
-
-/* რეგისტრაცია  */
-/* Register Section */
-#register {
-  padding: 60px 20px;
-  background-color: #1a1a1a;
-  color: #fff;
-  text-align: center;
+/* Responsive for Index Page */
+@media (max-width: 768px) {
+    #special-offers h2, #shop h2, #faq h2 {
+        font-size: 32px;
+    }
 }
-
-#register h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.5rem;
-  color: #d4af37;
-  margin-bottom: 40px;
-}
-
-.register-container {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: #d4af37;
-  margin-bottom: 5px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  border: 1px solid #d4af37;
-  background-color: #2e2e2e;
-  color: #fff;
-  border-radius: 5px;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #fff;
-}
-
-.luxury-btn {
-  display: inline-block;
-  padding: 10px 30px;
-  background-color: #d4af37;
-  color: #1a1a1a;
-  font-family: 'Cinzel', serif;
-  font-size: 1.1rem;
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.luxury-btn:hover {
-  background-color: #b8972d;
-}
-
-.login-link {
-  margin-top: 20px;
-  font-family: 'Poppins', sans-serif;
-  color: #ccc;
-}
-
-.login-link a {
-  color: #d4af37;
-  text-decoration: none;
-}
-
-.login-link a:hover {
-  text-decoration: underline;
-}
-
-
-
-
-/* Social Media Icons */
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.social-icon {
-  color: #d4af37;
-  font-size: 20px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.2);
-  color: #b8972e;
-}
-
-/* Header Social Icons */
-header .social-icons {
-  width: 79px;
-  position: absolute;
-  right: -132px;
-  top: -9%;
-  transform: translateY(-50%);
-}
-
-/* Footer Social Icons */
-footer .social-icons {
-  justify-content: center;
-  margin-top: 10px;
-}
-   
-footer {
-  text-align: center;
-  padding: 30px;
-  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
-  color: #d4af37;
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-  border-top: 1px solid #d4af37;
-} 

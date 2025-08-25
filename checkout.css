@@ -1,0 +1,185 @@
+/* ========================================= */
+/* === Checkout გვერდის უნიკალური სტილები === */
+/* ========================================= */
+
+.checkout-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    flex-grow: 1;
+    /* !!! დამატებული სტილები ცენტრირებისთვის !!! */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-container {
+    max-width: 1100px;
+    width: 100%; /* Ensures it takes up available space */
+    margin: 0 auto;
+}
+
+.checkout-title {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+/* Form Styling */
+.checkout-form {
+    background: #0d0d0d;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #d4af37;
+}
+
+.checkout-form h3 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d4af37;
+    padding-bottom: 10px;
+}
+
+.checkout-form .payment-title {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: #2c2c2c;
+    border: 1px solid #d4af37;
+    color: #fff;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Order Summary Styling */
+.order-summary {
+    background: #0d0d0d;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #d4af37;
+    height: fit-content;
+}
+
+.order-summary h3 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d4af37;
+    padding-bottom: 10px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.summary-item span:last-child {
+    font-weight: bold;
+    color: #d4af37;
+}
+
+.summary-total {
+    margin-top: 20px;
+    padding-top: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.summary-total hr {
+    border: none;
+    border-top: 1px solid #d4af37;
+    margin: 15px 0;
+}
+
+.summary-total p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.summary-total .total-price {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.summary-total .total-price span {
+     color: #d4af37;
+}
+
+.luxury-btn.place-order-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout-form, .order-summary {
+        padding: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

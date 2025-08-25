@@ -3,11 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Flowers for Flowers - Luxury Flower Shop</title>
+        <title>Shop - Flowers for Flowers</title>
+        
+        <!-- ახალი სტრუქტურა -->
+        <link rel="stylesheet" href="global.css">
         <link rel="stylesheet" href="shop.css">
+        
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-        <!-- Font Awesome CDN -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 <body>
     <div class="page-wrapper">
@@ -17,8 +20,9 @@
                 <div class="logo">
                     <a href="index.html" class="logo-text">Flowers For Flowers</a>
                 </div>
-                <ul>
-                    <li style="--index: 1;"><a href="special-offers.html">special-offers</a></li>
+                
+                <ul class="nav-links">
+                    <li style="--index: 1;"><a href="special-offers.html">Special-Cards</a></li>
                     <li style="--index: 2;" class="dropdown">
                         <a href="shop.html" class="dropbtn">Shop</a>
                         <div class="dropdown-content">
@@ -32,108 +36,134 @@
                     <li style="--index: 3;"><a href="about.html">About</a></li>
                     <li style="--index: 4;"><a href="contact.html">Contact</a></li>
                 </ul>
-                <!-- Social Media Icons -->
-                <div class="social-icons">
-                    <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.pinterest.com" target="_blank" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+
+                <div class="nav-actions">
+                    <div class="auth-buttons">
+                        <a href="login.html" class="luxury-btn">Log In</a>
+                        <a href="register.html" class="luxury-btn register-btn">Register</a>
+                    </div>
+                    <div class="desktop-social-icons">
+                        <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/19177690262" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Hamburger ღილაკი -->
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </nav>
         </header>
 
-        <!-- Special Offers სექცია -->
-        <section id="special-offers-page">
-            <canvas id="petals-canvas"></canvas>
-            <div class="offers-container">
-                <h2 class="offers-title">All Bouquets
-
-                </h2>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="roses">Roses</button>
-                    <button class="filter-btn" data-filter="lilies">Lilies</button>
-                    <button class="filter-btn" data-filter="tulips">Tulips</button>
-                    <button class="filter-btn" data-filter="orchids">Orchids</button>
-                    <button class="filter-btn" data-filter="mixed">Mixed</button>
-                   
+        <main>
+            <section id="special-offers-page">
+                <canvas id="petals-canvas"></canvas>
+                <div class="offers-container">
+                    <h2 class="offers-title">All Bouquets</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="roses">Roses</button>
+                        <button class="filter-btn" data-filter="lilies">Lilies</button>
+                        <button class="filter-btn" data-filter="tulips">Tulips</button>
+                        <button class="filter-btn" data-filter="orchids">Orchids</button>
+                        <button class="filter-btn" data-filter="mixed">Mixed</button>
+                    </div>
+                    <div class="offers-grid">
+                        <!-- Item 1: Rose -->
+                        <div class="offer-item" data-category="roses">
+                            <img src="img/flowers/red rose.jpg" alt="Classic Red Roses">
+                            <div class="offer-content">
+                                <h3>Classic Red Roses</h3>
+                                <p class="price">$85</p>
+                                <p class="description" style="display: none;">A timeless bouquet of a dozen red roses, symbolizing love and passion.</p>
+                                <button class="luxury-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                        <!-- Item 2: Mixed -->
+                        <div class="offer-item" data-category="mixed">
+                            <img src="img/flowers/4.jpg" alt="Scarlet Harmony">
+                            <div class="offer-content">
+                                <h3>Scarlet Harmony</h3>
+                                <p class="price">$140</p>
+                                <p class="description" style="display: none;">A beautiful mix of red and white flowers for a striking, elegant display.</p>
+                                <button class="luxury-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                        <!-- Item 3: Rose -->
+                        <div class="offer-item" data-category="roses">
+                            <img src="img/flowers/red.jpg" alt="Crimson Passion">
+                            <div class="offer-content">
+                                <h3>Crimson Passion</h3>
+                                <p class="price">$200</p>
+                                <p class="description" style="display: none;">A fiery burst of vibrant red roses to spark romance and ignite the senses.</p>
+                                <button class="luxury-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                        <!-- Item 4: Mixed -->
+                        <div class="offer-item" data-category="mixed">
+                            <img src="img/flowers/10.jpg" alt="Peach Elegance">
+                            <div class="offer-content">
+                                <h3>Peach Elegance</h3>
+                                <p class="price">$120</p>
+                                <p class="description" style="display: none;">Soft white and peach-colored roses create a radiant and tender charm.</p>
+                                <button class="luxury-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                         <!-- Item 5: Orchid (Placeholder) -->
+                        <div class="offer-item" data-category="orchids">
+                            <img src="img/flowers/6.jpg" alt="Orchid Dream">
+                            <div class="offer-content">
+                                <h3>Orchid Dream</h3>
+                                <p class="price">$95</p>
+                                <p class="description" style="display: none;">An exquisite and long-lasting orchid arrangement for a touch of pure luxury.</p>
+                                <button class="luxury-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                         <!-- Item 6: Tulip (Placeholder) -->
+                        <div class="offer-item" data-category="tulips">
+                            <img src="img/flowers/3.jpg" alt="Spring Tulips">
+                            <div class="offer-content">
+                                <h3>Spring Tulips</h3>
+                                <p class="price">$65</p>
+                                <p class="description" style="display: none;">A fresh and vibrant bouquet of colorful tulips to celebrate the season.</p>
+                                <button class="luxury-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagination">
+                        <!-- Pagination buttons can be added here if needed -->
+                    </div>
                 </div>
-                <div class="offers-grid">
-                    <!-- Roses -->
-                    <div class="offer-item" data-category="roses">
-                        <img src="https://images.unsplash.com/photo-1509266272358-7701da638078?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Red Rose Bouquet">
-                        <div class="offer-content">
-                            <h3>Red Rose Bouquet</h3>
-                            <p class="description hidden">A classic bouquet of 12 vibrant red roses, perfect for expressing love and passion.</p>
-                            <p class="price">$80</p>
-                            <a href="contact.html" target="_blank" class="luxury-btn">Shop Now</a>
-                        </div>
-                    </div>
+            </section>
+        </main>
 
-                       <!-- Roses -->
-                       <div class="offer-item" data-category="roses">
-                        <img src="https://images.unsplash.com/photo-1509266272358-7701da638078?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Red Rose Bouquet">
-                        <div class="offer-content">
-                            <h3>Red Rose Bouquet</h3>
-                            <p class="description hidden">A classic bouquet of 12 vibrant red roses, perfect for expressing love and passion.</p>
-                            <p class="price">$80</p>
-                            <a href="contact.html" target="_blank" class="luxury-btn">Shop Now</a>
-                        </div>
-                    </div>
-
-                       <!-- Roses -->
-                       <div class="offer-item" data-category="roses">
-                        <img src="https://images.unsplash.com/photo-1509266272358-7701da638078?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Red Rose Bouquet">
-                        <div class="offer-content">
-                            <h3>Red Rose Bouquet</h3>
-                            <p class="description hidden">A classic bouquet of 12 vibrant red roses, perfect for expressing love and passion.</p>
-                            <p class="price">$80</p>
-                            <a href="contact.html" target="_blank" class="luxury-btn">Shop Now</a>
-                        </div>
-                    </div>
-
-                       <!-- Roses -->
-                       <div class="offer-item" data-category="roses">
-                        <img src="https://images.unsplash.com/photo-1509266272358-7701da638078?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Red Rose Bouquet">
-                        <div class="offer-content">
-                            <h3>Red Rose Bouquet</h3>
-                            <p class="description hidden">A classic bouquet of 12 vibrant red roses, perfect for expressing love and passion.</p>
-                            <p class="price">$80</p>
-                            <a href="contact.html" target="_blank" class="luxury-btn">Shop Now</a>
-                        </div>
-                    </div>
-                   
-                   
-                </div>
-                <div class="pagination">
-                    <!-- Pagination buttons will be added dynamically -->
-                </div>
+        <footer>
+            <p>© 2025 Flowers for Flowers. A Premium Experience.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/19177690262" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
             </div>
-        </section>
+        </footer>
     </div>
 
     <!-- Modal for enlarged card -->
     <div class="modal" id="cardModal">
         <div class="modal-content">
-            <span class="close">×</span>
-            <img id="modalImage" src="" alt="Enlarged Image">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Enlarged Bouquet Image">
             <h3 id="modalTitle"></h3>
             <p id="modalDescription"></p>
-            <div id="modalPrice"></div>
-            <a id="modalShopNow" href="#" target="_blank" class="luxury-btn">Shop Now</a>
+            <div id="modalPrice" class="price"></div>
+            <button class="luxury-btn">Add to Cart</button>
         </div>
     </div>
 
-    <footer>
-        <p>© 2025 Flowers for Flowers. A Premium Experience.</p>
-        <!-- Social Media Icons -->
-        <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/1234567890" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="main.js"></script>
     <script src="shop.js"></script>
 </body>
 </html>

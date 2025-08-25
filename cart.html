@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart - Flowers for Flowers</title>
+    
+    <!-- ახალი სტრუქტურა -->
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="cart.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div id="particles-js"></div>
+            <nav>
+                <div class="logo">
+                    <a href="index.html" class="logo-text">Flowers For Flowers</a>
+                </div>
+                
+                <ul class="nav-links">
+                    <li style="--index: 1;"><a href="special-offers.html">Special-Cards</a></li>
+                    <li style="--index: 2;" class="dropdown">
+                        <a href="shop.html" class="dropbtn">Shop</a>
+                        <div class="dropdown-content">
+                            <a href="shop.html?category=roses">Roses</a>
+                            <a href="shop.html?category=lilies">Lilies</a>
+                            <a href="shop.html?category=tulips">Tulips</a>
+                            <a href="shop.html?category=orchids">Orchids</a>
+                            <a href="shop.html?category=mixed">Mixed</a>
+                        </div>
+                    </li>
+                    <li style="--index: 3;"><a href="about.html">About</a></li>
+                    <li style="--index: 4;"><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="auth-buttons">
+                        <a href="login.html" class="luxury-btn">Log In</a>
+                        <a href="register.html" class="luxury-btn register-btn">Register</a>
+                    </div>
+                    <div class="desktop-social-icons">
+                        <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/19177690262" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Hamburger ღილაკი -->
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="cart-section">
+                <div class="cart-container">
+                    <h2 class="cart-title">Your Shopping Cart</h2>
+                    <div class="cart-items">
+                        <!-- Example Cart Item 1 -->
+                        <div class="cart-item">
+                            <img src="img/flowers/red rose.jpg" alt="Ruby Blossom Mix Bouquet" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h3 class="cart-item-title">Ruby Blossom Mix Bouquet</h3>
+                                <p class="cart-item-price">$200</p>
+                            </div>
+                            <div class="cart-item-quantity">
+                                <input type="number" value="1" min="1">
+                            </div>
+                            <div class="cart-item-total">$200</div>
+                            <button class="cart-item-remove"><i class="fas fa-trash"></i></button>
+                        </div>
+
+                        <!-- Example Cart Item 2 -->
+                        <div class="cart-item">
+                            <img src="img/flowers/4.jpg" alt="Scarlet Harmony Bouquet" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h3 class="cart-item-title">Scarlet Harmony Bouquet</h3>
+                                <p class="cart-item-price">$140</p>
+                            </div>
+                            <div class="cart-item-quantity">
+                                <input type="number" value="1" min="1">
+                            </div>
+                            <div class="cart-item-total">$140</div>
+                            <button class="cart-item-remove"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="cart-summary">
+                        <div class="summary-details">
+                            <p>Subtotal: <span>$340</span></p>
+                            <p>Shipping: <span>$15</span></p>
+                            <h3 class="summary-total">Total: <span>$355</span></h3>
+                        </div>
+                        <div class="cart-actions">
+                            <a href="shop.html" class="luxury-btn continue-shopping">Continue Shopping</a>
+                            <a href="checkout.html" class="luxury-btn checkout">Proceed to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 Flowers for Flowers. A Premium Experience.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/19177690262" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="main.js"></script>
+    <!-- ამ გვერდს ჯერ არ სჭირდება უნიკალური JS. როცა დაგვჭირდება, დავამატებთ cart.js-ს -->
+</body>
+</html>

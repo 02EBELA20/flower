@@ -1,0 +1,353 @@
+/* ========================================= */
+/* ===== გლობალური და ძირითადი სტილები ===== */
+/* ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+    padding-top: 100px; /* Adjust this value based on your header's height */
+}
+
+
+/* ========================================= */
+/* =========== HEADER & NAVIGATION ========= */
+/* ========================================= */
+
+header {
+  background: #0d0d0d;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  border-bottom: 1px solid #d4af37;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 50px;
+  color: #d4af37;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-links li {
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(0.2s * var(--index));
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: rgb(0, 208, 255);
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #d4af37;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: linear-gradient(90deg, #1a1a1a, #2c2c2c);
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  border-radius: 5px;
+  border: 1px solid #d4af37;
+  padding: 10px 0;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #d4af37;
+  color: #1a1a1a;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    /* !!! გაზრდილი დაშორება !!! */
+    gap: 30px; 
+}
+
+/* !!! შემცირებული ღილაკები !!! */
+.auth-buttons .luxury-btn {
+    padding: 6px 18px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.auth-buttons .luxury-btn.register-btn {
+    background-color: transparent;
+    color: #d4af37;
+}
+
+.auth-buttons .luxury-btn.register-btn:hover {
+    background-color: #d4af37;
+    color: #0d0d0d;
+}
+
+.desktop-social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  color: #d4af37;
+  font-size: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #b8972e;
+}
+
+.social-icon.fa-whatsapp:hover {
+  color: #25D366;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* ========================================= */
+/* ================= FOOTER ================ */
+/* ========================================= */
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #0d0d0d;
+  color: #d4af37;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  border-top: 1px solid #d4af37;
+}
+
+footer .social-icons {
+  justify-content: center;
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+/* ========================================= */
+/* =========== ზოგადი კლასები ============= */
+/* ========================================= */
+
+.luxury-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #d4af37;
+    color: #0d0d0d;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 1px solid #d4af37;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.luxury-btn:hover {
+    background-color: #b8972e;
+    transform: translateY(-2px);
+}
+
+/* ========================================= */
+/* =========== ANIMATION KEYFRAMES ========= */
+/* ========================================= */
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+/* ========================================= */
+/* ======== RESPONSIVE (MOBILE) ======== */
+/* ========================================= */
+
+@media (max-width: 992px) {
+  .nav-links, .nav-actions {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 250px;
+    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: left 0.4s ease-in-out;
+    gap: 0;
+  }
+
+  .nav-links.active {
+    left: 0;
+    display: flex;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .nav-links li {
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .dropdown-content {
+    position: static;
+    background: none;
+    border: none;
+    box-shadow: none;
+    min-width: 100%;
+    padding: 10px 0 0 0;
+  }
+  
+  .dropdown-content a {
+    color: #d4af37;
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .logo-text {
+      font-size: 32px;
+  }
+}

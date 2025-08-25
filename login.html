@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About Us - Flowers for Flowers</title>
-        
-        <!-- ახალი სტრუქტურა -->
-        <link rel="stylesheet" href="global.css">
-        <link rel="stylesheet" href="about.css">
-        
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Flowers for Flowers</title>
+    
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="form.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <body>
     <div class="page-wrapper">
         <header>
@@ -20,7 +19,6 @@
                 <div class="logo">
                     <a href="index.html" class="logo-text">Flowers For Flowers</a>
                 </div>
-                
                 <ul class="nav-links">
                     <li style="--index: 1;"><a href="special-offers.html">Special-Cards</a></li>
                     <li style="--index: 2;" class="dropdown">
@@ -36,7 +34,6 @@
                     <li style="--index: 3;"><a href="about.html">About</a></li>
                     <li style="--index: 4;"><a href="contact.html">Contact</a></li>
                 </ul>
-
                 <div class="nav-actions">
                     <div class="auth-buttons">
                         <a href="login.html" class="luxury-btn">Log In</a>
@@ -48,8 +45,6 @@
                         <a href="https://wa.me/19177690262" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-
-                <!-- Hamburger ღილაკი -->
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -59,21 +54,21 @@
         </header>
 
         <main>
-            <section id="about">
-                <div class="about-container">
-                    <h2 class="about-title">About Our Shop</h2>
-                    <div class="about-content">
-                        <p>We are an online flower shop offering the most beautiful bouquets, crafted with love and care to add color and joy to your special moments. Our mission is to provide you with high-quality flowers that perfectly express your emotions—whether it’s a birthday, a declaration of love, or simply making a friend smile.</p>
-                        <p>Currently, we operate solely online, but my big dream is to one day open my own flower shop—a place where everyone who walks in feels a sense of joy and warmth. Each order you place brings me one step closer to that dream.</p>
-                        <p>Every customer is truly special to us, and we’re so grateful to have you as part of our shop’s story.</p>
-                    </div>
-
-                    <h3 class="about-subtitle">Ordering and Delivery</h3>
-                    <div class="about-content">
-                        <p>To place an order, simply reach out to us via the contact number provided or through our social media channels. We’ll guide you through the process to ensure your bouquet is perfect for your occasion.</p>
-                        <p>Delivery typically takes 24 hours from the time of your order. For those in a hurry, we also offer expedited delivery options. The delivery fee depends on the distance and timing, which you can confirm during the ordering process.</p>
-                        <p>We’re here to make your experience seamless—feel free to clarify any details when placing your order!</p>
-                    </div>
+            <section class="form-page-section">
+                <div class="form-container">
+                    <h2 class="form-title">Log In</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="luxury-btn">Log In</button>
+                    </form>
+                    <p class="form-redirect">Don't have an account? <a href="register.html">Register</a></p>
                 </div>
             </section>
         </main>
@@ -90,6 +85,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="main.js"></script>
-    <!-- ამ გვერდს არ სჭირდება უნიკალური JS, ამიტომ about.js-ს აღარ ვიყენებთ -->
+    <!-- <script src="auth.js"></script> If you have form validation logic -->
 </body>
 </html>

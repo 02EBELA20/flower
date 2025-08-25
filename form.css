@@ -1,0 +1,111 @@
+/* ========================================= */
+/* ===== ფორმების (Login/Register) სტილები ===== */
+/* ========================================= */
+
+.form-page-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    flex-grow: 1;
+    background: url('img/flowers/background.jpg') no-repeat center center/cover; /* შეგიძლიათ შეცვალოთ ფონის სურათი */
+    position: relative;
+}
+
+/* Overlay for better text readability */
+.form-page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.form-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 40px;
+    background-color: rgba(13, 13, 13, 0.8);
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 2;
+}
+
+.form-title {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    color: #f0f0f0;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #1a1a1a;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.form-container .luxury-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.form-redirect {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #ccc;
+}
+
+.form-redirect a {
+    color: rgb(0, 208, 255);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.form-redirect a:hover {
+    color: #d4af37;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 25px;
+    }
+}
