@@ -24,7 +24,7 @@ body {
 }
 
 main {
-    padding-top: 100px; /* Adjust this value based on your header's height */
+    padding-top: 90px; /* Header height */
 }
 
 
@@ -34,7 +34,7 @@ main {
 
 header {
   background: #0d0d0d;
-  padding: 20px;
+  padding: 15px 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -58,14 +58,14 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .logo-text {
   font-family: 'Cinzel', serif;
-  font-size: 50px;
+  font-size: 40px;
   color: #d4af37;
   text-decoration: none;
   text-transform: uppercase;
@@ -81,9 +81,6 @@ nav {
 
 .nav-links li {
   position: relative;
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
-  animation-delay: calc(0.2s * var(--index));
 }
 
 .nav-links li a {
@@ -98,21 +95,6 @@ nav {
 
 .nav-links li a:hover {
   color: #d4af37;
-}
-
-.nav-links li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #d4af37;
-  bottom: -5px;
-  left: 0;
-  transition: width 0.3s ease;
-}
-
-.nav-links li a:hover::after {
-  width: 100%;
 }
 
 .dropdown {
@@ -138,9 +120,6 @@ nav {
   padding: 12px 20px;
   text-decoration: none;
   display: block;
-  font-size: 16px;
-  font-family: 'Poppins', sans-serif;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .dropdown-content a:hover {
@@ -155,11 +134,14 @@ nav {
 .nav-actions {
     display: flex;
     align-items: center;
-    /* !!! გაზრდილი დაშორება !!! */
-    gap: 30px; 
+    gap: 20px; 
 }
 
-/* !!! შემცირებული ღილაკები !!! */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
 .auth-buttons .luxury-btn {
     padding: 6px 18px;
     font-size: 14px;
@@ -189,15 +171,21 @@ nav {
 
 .social-icon:hover {
   transform: scale(1.2);
-  color: #b8972e;
-}
-
-.social-icon.fa-whatsapp:hover {
-  color: #25D366;
 }
 
 .hamburger {
   display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #d4af37;
+  transition: all 0.3s ease;
 }
 
 /* ========================================= */
@@ -238,6 +226,7 @@ footer .social-icons {
     border-radius: 5px;
     border: 1px solid #d4af37;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
 
 .luxury-btn:hover {
@@ -246,45 +235,81 @@ footer .social-icons {
 }
 
 /* ========================================= */
-/* =========== ANIMATION KEYFRAMES ========= */
+/* =========== IMAGE MODAL STYLES ========== */
 /* ========================================= */
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(-10px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-@keyframes fadeInDown {
-  from {
-      opacity: 0;
-      transform: translateY(-30px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+.image-modal.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-@keyframes fadeInUp {
-  from {
-      opacity: 0;
-      transform: translateY(30px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+.image-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+    animation: zoomIn 0.3s ease;
 }
 
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 10px;
+    border: 2px solid #d4af37;
+}
+
+.image-modal-details {
+    margin-top: 15px;
+    color: #fff;
+}
+
+.image-modal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    color: #d4af37;
+}
+
+.image-modal-price {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.image-modal-close:hover {
+    color: #d4af37;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
 /* ========================================= */
-/* ======== RESPONSIVE (MOBILE) ======== */
+/* ======== RESPONSIVE (TABLET & MOBILE) ======== */
 /* ========================================= */
 
 @media (max-width: 992px) {
@@ -300,9 +325,9 @@ footer .social-icons {
     position: fixed;
     top: 0;
     left: -100%;
-    height: 100vh;
-    width: 250px;
-    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    height: 100%;
+    width: 280px;
+    background: #111;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -337,17 +362,24 @@ footer .social-icons {
     background: none;
     border: none;
     box-shadow: none;
-    min-width: 100%;
     padding: 10px 0 0 0;
-  }
-  
-  .dropdown-content a {
-    color: #d4af37;
-    font-size: 14px;
-    padding: 10px;
   }
   
   .logo-text {
       font-size: 32px;
   }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding-top: 80px;
+    }
+    
+    h2, .offers-title, .underlined-title {
+        font-size: 32px !important;
+    }
+
+    .logo-text {
+        font-size: 28px;
+    }
 }
