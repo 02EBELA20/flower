@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="order-failure.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="page-wrapper">
@@ -38,6 +38,17 @@
                     <div class="auth-buttons">
                         <a href="login.html" class="luxury-btn">Log In</a>
                         <a href="register.html" class="luxury-btn register-btn">Register</a>
+                    </div>
+                    <div id="user-info" style="display: none; align-items: center; gap: 15px;">
+                        <span id="user-name" style="color: #d4af37; font-family: 'Poppins', sans-serif;"></span>
+                        <a href="profile.html" class="social-icon" title="Profile"><i class="fas fa-user-circle"></i></a>
+                        <button id="logout-btn" class="luxury-btn register-btn">Log Out</button>
+                    </div>
+                    <div class="cart-icon">
+                        <a href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count">0</span>
+                        </a>
                     </div>
                     <div class="desktop-social-icons">
                         <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -83,6 +94,8 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="main.js"></script> 
+    <script src="main.js"></script>
+    <!-- Include cart.js to update the cart count -->
+    <script src="cart.js"></script>
 </body>
 </html>

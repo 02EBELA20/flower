@@ -143,8 +143,8 @@ nav {
 }
 
 .auth-buttons .luxury-btn {
-    padding: 6px 18px;
-    font-size: 14px;
+    padding: 9px 10px;
+    font-size: 10px;
     font-weight: normal;
 }
 
@@ -221,12 +221,12 @@ footer .social-icons {
 
 .luxury-btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 9px 10px;
     background: #d4af37;
     color: #0d0d0d;
     text-decoration: none;
     font-family: 'Cinzel', serif;
-    font-size: 16px;
+    font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 5px;
@@ -426,4 +426,39 @@ footer .social-icons {
     .logo-text {
         font-size: 28px;
     }
+}
+
+/* Cart icon styling */
+.cart-icon a{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;            /* მოაშორე ხაზი */
+  color: #d4af37;                   /* ბრენდის ოქროსფერი */
+}
+
+.cart-icon a:hover{
+  opacity: .85;
+}
+
+.cart-icon i{
+  font-size: 22px;
+  line-height: 1;
+  color: #d4af37;                   /* ხატულაც ოქროსფერი */
+}
+
+/* ლამაზი ბეჯი რაოდენობისთვის */
+#cart-count{
+  display: inline-block;
+  min-width: 22px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #d4af37;             /* ოქროსფერი ფონზე */
+  color: #111;                      /* მუქი ტექსტი */
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;            /* ხაზი არ იყოს */
+  transform: translateY(-2px);      /* ოდნავ ასწია ვიზუალისთვის */
 }

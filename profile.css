@@ -9,71 +9,54 @@
     padding: 80px 20px;
     flex-grow: 1;
     background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
-}
-
-.profile-container {
+  }
+  
+  .profile-container {
     max-width: 900px;
     width: 100%;
     padding: 40px;
     background-color: rgba(13, 13, 13, 0.8);
     border: 1px solid #d4af37;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-.profile-title {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+  
+  .profile-title {
     font-family: 'Cinzel', serif;
     color: #d4af37;
     font-size: 32px;
     text-align: center;
     margin-bottom: 40px;
     text-transform: uppercase;
-}
-
-/* Sections and Details */
-.profile-section {
-    margin-bottom: 40px;
-}
-
-.section-title {
+  }
+  
+  /* Sections and Details */
+  .profile-section { margin-bottom: 40px; }
+  
+  .section-title {
     font-family: 'Playfair Display', serif;
     color: #f0f0f0;
     font-size: 22px;
     border-bottom: 1px solid #555;
     padding-bottom: 10px;
     margin-bottom: 20px;
-}
-
-.details-grid {
+  }
+  
+  .details-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
     margin-bottom: 25px;
-}
-
-.detail-item {
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-}
-
-.detail-label {
-    color: #aaa;
-    margin-right: 10px;
-}
-
-.detail-value {
-    color: #fff;
-    font-weight: 500;
-}
-
-/* Order History */
-.order-history-table {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.order-item {
+  }
+  
+  .detail-item { font-family: 'Poppins', sans-serif; font-size: 16px; }
+  .detail-label { color: #aaa; margin-right: 10px; }
+  .detail-value { color: #fff; font-weight: 500; }
+  
+  /* Order History */
+  .order-history-table { display: flex; flex-direction: column; gap: 15px; }
+  
+  .order-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,107 +65,63 @@
     padding: 15px 20px;
     border-radius: 5px;
     border-left: 3px solid #d4af37;
-    transition: background-color 0.3s;
-}
-
-.order-item:hover {
-    background-color: #252525;
-}
-
-.order-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.order-id {
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    font-weight: 500;
-}
-
-.order-date {
-    font-size: 14px;
-    color: #aaa;
-}
-
-.order-total {
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.order-status {
+    transition: background-color .3s;
+  }
+  .order-item:hover { background-color: #252525; }
+  
+  .order-info { display: flex; flex-direction: column; }
+  .order-id { font-family: 'Poppins', sans-serif; color: #fff; font-weight: 500; }
+  .order-date { font-size: 14px; color: #aaa; }
+  .order-total { font-family: 'Poppins', sans-serif; color: #fff; font-size: 18px; font-weight: 500; }
+  
+  .order-status {
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
-}
-
-.order-status.delivered {
-    background-color: #28a745; /* Green */
-}
-
-.order-status.shipped {
-    background-color: #fd7e14; /* Orange */
-}
-
-.view-details {
+  }
+  .order-status.delivered  { background-color: #28a745; }
+  .order-status.shipped    { background-color: #fd7e14; }
+  .order-status.new        { background-color: #6c757d; }
+  .order-status.processing { background-color: #007bff; }
+  .order-status.cancelled  { background-color: #dc3545; }
+  
+  .view-details {
     color: rgb(0, 208, 255);
     text-decoration: none;
     font-size: 14px;
     margin-left: 15px;
-}
-
-.view-details:hover {
-    text-decoration: underline;
-}
-
-/* Buttons */
-.luxury-btn-outline {
+  }
+  .view-details:hover { text-decoration: underline; }
+  
+  /* Buttons */
+  .luxury-btn-outline {
     display: inline-block;
     padding: 8px 18px;
     border: 1px solid #d4af37;
     color: #d4af37;
-    background-color: transparent;
+    background: transparent;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.luxury-btn-outline:hover {
-    background-color: #d4af37;
-    color: #0d0d0d;
-}
-
-.logout-btn {
+    transition: background-color .3s, color .3s;
+  }
+  .luxury-btn-outline:hover { background-color: #d4af37; color: #0d0d0d; }
+  
+  .logout-btn {
     width: 100%;
     margin-top: 20px;
-    background-color: #5c2c2c; /* Dark Red */
+    background-color: #5c2c2c;
     border: 1px solid #a74545;
     color: #fff;
-}
-
-.logout-btn:hover {
-    background-color: #a74545;
-    border-color: #c45a5a;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .order-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .profile-container {
-        padding: 20px;
-    }
-
-    .profile-title {
-        font-size: 26px;
-    }
-}
+  }
+  .logout-btn:hover { background-color: #a74545; border-color: #c45a5a; }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .order-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .profile-container { padding: 20px; }
+    .profile-title { font-size: 26px; }
+  }
+  
