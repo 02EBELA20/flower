@@ -1,4 +1,43 @@
+// main.js
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- ახალი: ავტორიზაციის UI-ის განახლების ლოგიკა ---
+    const handleAuthUI = () => {
+        const token = localStorage.getItem('token');
+        const userFullName = localStorage.getItem('userFullName');
+
+        const authButtons = document.querySelector('.auth-buttons');
+        const userInfo = document.getElementById('user-info');
+        const userNameSpan = document.getElementById('user-name');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        if (token && userFullName) {
+            // თუ მომხმარებელი ავტორიზებულია
+            if (authButtons) authButtons.style.display = 'none';
+            if (userInfo) userInfo.style.display = 'flex';
+            if (userNameSpan) userNameSpan.textContent = ` ${userFullName}`;
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    // ლოკალური მეხსიერების გასუფთავება
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('userFullName');
+                    // გადამისამართება მთავარ გვერდზე
+                    window.location.href = 'index.html';
+                });
+            }
+        } else {
+            // თუ მომხმარებელი არ არის ავტორიზებული
+            if (authButtons) authButtons.style.display = 'flex';
+            if (userInfo) userInfo.style.display = 'none';
+        }
+    };
+
+    // ამ ფუნქციის გამოძახება ყოველი გვერდის ჩატვირთვისას
+    handleAuthUI();
+    // --- ახალი ლოგიკის დასასრული ---
+
 
     // Hamburger Menu Toggle Logic
     const hamburger = document.querySelector('.hamburger');
@@ -18,11 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========================================= //
-    // =========== UNIVERSAL IMAGE MODAL LOGIC ========= //
-    // ========================================= //
-
-    // 1. Create the modal structure dynamically
+    // UNIVERSAL IMAGE MODAL LOGIC (ეს კოდი უცვლელია)
     const modalHTML = `
         <div class="image-modal">
             <div class="image-modal-content">
@@ -35,30 +70,27 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
     `;
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    if (!document.querySelector('.image-modal')) {
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
 
-    // 2. Get references to modal elements
     const imageModal = document.querySelector('.image-modal');
     const modalImage = imageModal.querySelector('img');
     const modalTitle = imageModal.querySelector('.image-modal-title');
     const modalPrice = imageModal.querySelector('.image-modal-price');
     const closeModalBtn = imageModal.querySelector('.image-modal-close');
 
-    // 3. Find all clickable product images
     const productImages = document.querySelectorAll('.offer-item img, .carousel-item img, .special-bouquet-item img');
 
-    // 4. Add click event listener to each image
     productImages.forEach(img => {
-        img.style.cursor = 'pointer'; // Add pointer cursor to indicate it's clickable
+        img.style.cursor = 'pointer';
         img.addEventListener('click', (e) => {
             const parent = e.target.closest('.offer-item, .carousel-item, .special-bouquet-item');
-            
             if (parent) {
                 const title = parent.querySelector('h3').textContent;
                 const priceElement = parent.querySelector('.price, .new-price');
                 const price = priceElement ? priceElement.textContent : '';
 
-                // Populate and show the modal
                 modalImage.src = img.src;
                 modalTitle.textContent = title;
                 modalPrice.textContent = price;
@@ -67,15 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Function to close the modal
     const closeModal = () => {
         imageModal.classList.remove('active');
     };
 
-    // 6. Add event listeners to close the modal
     closeModalBtn.addEventListener('click', closeModal);
     imageModal.addEventListener('click', (e) => {
-        // Close if the dark overlay is clicked, but not the content inside it
         if (e.target === imageModal) {
             closeModal();
         }

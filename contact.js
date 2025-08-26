@@ -1,32 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Contact Info Section Animation on Scroll
     const contactInfoSection = document.querySelector('#contact-info');
 
-    // Check if we are on the correct page
+    // Check if we are on the contact page to avoid errors on other pages
     if (contactInfoSection) {
-        const elementsToAnimate = [
-            document.querySelector('.contact-info-title'),
-            document.querySelector('.contact-info-text'),
-            ...document.querySelectorAll('.contact-info-method'),
-            document.querySelector('.contact-info-socials')
-        ].filter(el => el !== null); // Filter out any null elements
+        // Select all elements that need to be animated
+        const elementsToAnimate = contactInfoSection.querySelectorAll('.contact-info-title, .contact-info-text, .contact-info-method, .contact-info-socials');
 
-        const observer = new IntersectionObserver((entries) => {
+        // This function will be called when the section comes into view
+        const callback = (entries, observer) => {
             entries.forEach(entry => {
+                // If the section is intersecting (visible)
                 if (entry.isIntersecting) {
-                    // Add animation class to each element with a delay
-                    elementsToAnimate.forEach((el, index) => {
-                        setTimeout(() => {
-                            el.classList.add('animate-popup');
-                        }, index * 200); // 200ms delay between each item
+                    // Add the 'is-visible' class to each element
+                    elementsToAnimate.forEach(el => {
+                        el.classList.add('is-visible');
                     });
-                    observer.unobserve(entry.target); // Stop observing after animation
+                    // Stop observing after the animation has been triggered once
+                    observer.unobserve(contactInfoSection);
                 }
             });
-        }, {
-            threshold: 0.2 // Trigger when 20% of the element is visible
+        };
+
+        // Create the observer
+        const observer = new IntersectionObserver(callback, {
+            threshold: 0.2 // Trigger when 20% of the section is visible
         });
 
+        // Start observing the contact section
         observer.observe(contactInfoSection);
     }
 });
