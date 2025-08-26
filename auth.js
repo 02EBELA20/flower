@@ -1,87 +1,61 @@
-// auth.js
+// frontend/auth.js
+(() => {
+  const API = 'http://localhost:5000/api';
+  const $ = (s, r = document) => r.querySelector(s);
 
-document.addEventListener('DOMContentLoaded', () => {
-    // --- რეგისტრაციის ფორმის ლოგიკა ---
-    const registerForm = document.getElementById('register-form');
-    if (registerForm) {
-        registerForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
+  async function handleAuth(url, payload) {
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
 
-            const fullName = document.getElementById('fullName').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
+      const data = await res.json().catch(() => ({}));
 
-            if (password !== confirmPassword) {
-                alert("პაროლები არ ემთხვევა!");
-                return;
-            }
+      if (!res.ok) {
+        alert(`შესვლის/რეგისტრის შეცდომა: ${data.message || res.status}`);
+        return;
+      }
 
-            const userData = { fullName, email, password };
+      // მიიღე ნებისმიერი სახელით წამოსული ტოკენი
+      const token = data.token || data.accessToken || data.jwt;
+      if (!token) {
+        console.log('Auth response (no token):', data);
+        alert('შესვლის შეცდომა: No token');
+        return;
+      }
 
-            try {
-                const response = await fetch('http://localhost:5000/api/register', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(userData)
-                });
+      localStorage.setItem('token', token);
+      localStorage.setItem('userFullName', data.user?.fullName || data.fullName || '');
+      localStorage.setItem('userEmail',    data.user?.email    || data.email    || '');
 
-                const result = await response.json();
-
-                if (response.status === 201) {
-                    alert('რეგისტრაცია წარმატებით დასრულდა! ახლა შეგიძლიათ გაიაროთ ავტორიზაცია.');
-                    window.location.href = 'login.html';
-                } else {
-                    alert(`რეგისტრაციის შეცდომა: ${result.message}`);
-                }
-            } catch (error) {
-                console.error('Error during registration:', error);
-                alert('დაფიქსირდა შეცდომა. გთხოვთ, სცადოთ მოგვიანებით.');
-            }
-        });
+      // UI refresh
+      location.href = 'profile.html';
+    } catch (e) {
+      console.error('auth error', e);
+      alert('ქსელის შეცდომა, სცადეთ ისევ.');
     }
+  }
 
-    // --- ავტორიზაციის (Login) ფორმის ლოგიკა ---
-    const loginForm = document.getElementById('login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
+  // Login
+  const loginForm = $('#login-form');
+  loginForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = $('#email')?.value?.trim();
+    const password = $('#password')?.value;
+    handleAuth(`${API}/login`, { email, password });
+  });
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            const userData = { email, password };
-
-            try {
-                const response = await fetch('http://localhost:5000/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(userData)
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    // თუ ავტორიზაცია წარმატებულია
-                    alert(`მოგესალმებით, ${result.fullName}!`);
-                    
-                    // --- ყველაზე მნიშვნელოვანი ნაწილი ---
-                    // ვინახავთ მიღებულ ტოკენს ბრაუზერის მეხსიერებაში (localStorage)
-                    // ეს ტოკენი დაგვჭირდება იმის დასადასტურებლად, რომ მომხმარებელი ავტორიზებულია
-                    localStorage.setItem('token', result.token);
-                    localStorage.setItem('userFullName', result.fullName);
-                    
-                    // გადამისამართება მთავარ გვერდზე
-                    window.location.href = 'index.html';
-                } else {
-                    // თუ სერვერმა დააბრუნა შეცდომა
-                    alert(`ავტორიზაციის შეცდომა: ${result.message}`);
-                }
-
-            } catch (error) {
-                console.error('Error during login:', error);
-                alert('დაფიქსირდა შეცდომა. გთხოვთ, სცადოთ მოგვიანებით.');
-            }
-        });
-    }
-});
+  // Register
+  const regForm = $('#register-form');
+  regForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fullName = $('#fullName')?.value?.trim();
+    const email = $('#email')?.value?.trim();
+    const password = $('#password')?.value;
+    const pass2 = $('#confirm-password')?.value;
+    if (password !== pass2) { alert('პაროლები არ ემთხვევა'); return; }
+    handleAuth(`${API}/register`, { fullName, email, password });
+  });
+})();

@@ -5,24 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Profile - Flowers for Flowers</title>
 
-  <link rel="stylesheet" href="global.css">
-  <link rel="stylesheet" href="profile.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
   <div class="page-wrapper">
+    <!-- შენი არსებული header/nav დარჩეს როგორც არის -->
     <header>
       <div id="particles-js"></div>
       <nav>
-        <div class="logo">
-          <a href="index.html" class="logo-text">Flowers For Flowers</a>
-        </div>
-
+        <div class="logo"><a href="index.html" class="logo-text">Flowers For Flowers</a></div>
         <ul class="nav-links">
-          <li style="--index: 1;"><a href="special-offers.html">Special-Cards</a></li>
-          <li style="--index: 2;" class="dropdown">
+          <li><a href="special-offers.html">Special-Cards</a></li>
+          <li class="dropdown">
             <a href="shop.html" class="dropbtn">Shop</a>
             <div class="dropdown-content">
               <a href="shop.html?category=roses">Roses</a>
@@ -32,42 +29,28 @@
               <a href="shop.html?category=mixed">Mixed</a>
             </div>
           </li>
-          <li style="--index: 3;"><a href="about.html">About</a></li>
-          <li style="--index: 4;"><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
 
         <div class="nav-actions">
-          <!-- Guests -->
           <div class="auth-buttons">
             <a href="login.html" class="luxury-btn">Log In</a>
             <a href="register.html" class="luxury-btn register-btn">Register</a>
           </div>
 
-          <!-- Logged-in user (main.js აჩენს/მალავს) -->
-          <div id="user-info" style="display:none; align-items:center; gap:15px;">
-            <span id="user-name" style="color:#d4af37; font-family:'Poppins', sans-serif;"></span>
+          <div id="user-info" style="display:none;align-items:center;gap:15px;">
+            <span id="user-name" style="color:#d4af37;font-family:'Poppins',sans-serif;"></span>
             <a href="profile.html" class="social-icon" title="Profile"><i class="fas fa-user-circle"></i></a>
             <button id="logout-btn" class="luxury-btn register-btn">Log Out</button>
           </div>
 
-          <!-- Cart -->
           <div class="cart-icon">
             <a href="cart.html">
               <i class="fas fa-shopping-cart"></i>
               <span id="cart-count">0</span>
             </a>
           </div>
-
-          <!-- Social -->
-          <div class="desktop-social-icons">
-            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/19177690262" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-
-        <div class="hamburger">
-          <span></span><span></span><span></span>
         </div>
       </nav>
     </header>
@@ -75,7 +58,7 @@
     <main>
       <section class="profile-page-section">
         <div class="profile-container">
-          <h2 class="profile-title">My Profile</h2>
+          <h2 class="profile-title">MY PROFILE</h2>
 
           <!-- Personal Details -->
           <div class="profile-section">
@@ -90,16 +73,18 @@
                 <span class="detail-value" id="profileEmail">—</span>
               </div>
             </div>
-            <a href="javascript:void(0)" class="luxury-btn-outline" id="editProfileBtn">Edit Details</a>
+            <a href="#" id="editProfileBtn" class="luxury-btn-outline">Edit Details</a>
           </div>
 
           <!-- Order History -->
           <div class="profile-section">
             <h3 class="section-title">Order History</h3>
-            <div class="order-history-table" id="orderHistory"></div>
+            <div id="orderHistory" class="order-history-table">
+              <p>Loading...</p>
+            </div>
           </div>
 
-          <a href="#" id="profileLogoutBtn" class="luxury-btn logout-btn">Log Out</a>
+          <button id="profileLogoutBtn" class="luxury-btn logout-btn">LOG OUT</button>
         </div>
       </section>
     </main>
@@ -114,10 +99,9 @@
     </footer>
   </div>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="main.js"></script>
-  <script src="cart.js"></script>
+  <script src="auth.js"></script>
   <script src="profile.js"></script>
 </body>
 </html>

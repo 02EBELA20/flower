@@ -1,114 +1,102 @@
-// Profile page logic (localStorage first; API-ready fallback)
-document.addEventListener('DOMContentLoaded', () => {
-    const els = {
-      name:   document.getElementById('profileName'),
-      email:  document.getElementById('profileEmail'),
-      list:   document.getElementById('orderHistory'),
-      logout: document.getElementById('profileLogoutBtn'),
-      edit:   document.getElementById('editProfileBtn')
-    };
-  
-    // === 1) Current user (auth.js უნდა ინახავდეს ამ გასაღებებს) ===
-    const user = {
-      fullName: localStorage.getItem('userFullName') || localStorage.getItem('username') || 'Guest',
-      email:    localStorage.getItem('userEmail') || localStorage.getItem('email') || '—',
-      token:    localStorage.getItem('token') || null
-    };
-    if (els.name)  els.name.textContent  = user.fullName;
-    if (els.email) els.email.textContent = user.email;
-  
-    // === 2) Orders loader ===
-    const money = (n) => `$${(Number(n) || 0).toFixed(2)}`;
-    const statusClass = (s='new') => {
-      s = String(s).toLowerCase();
-      return ['delivered','shipped','processing','cancelled','new'].includes(s) ? s : 'new';
-    };
-  
-    const renderOrders = (orders=[]) => {
-      if (!els.list) return;
-      if (!orders.length) { els.list.innerHTML = '<p>No orders yet.</p>'; return; }
-  
-      els.list.innerHTML = orders.map(o => `
-        <div class="order-item" data-id="${o.id || o.orderId}">
+// profile.js — User info + Order history (final)
+(() => {
+  const API = 'http://localhost:5000/api';
+  const $   = (s, r = document) => r.querySelector(s);
+  const money = (n) => `$${(Number(n) || 0).toFixed(2)}`;
+
+  // ---- Elements
+  const els = {
+    name:   $('#profileName'),
+    email:  $('#profileEmail'),
+    list:   $('#orderHistory'),
+    edit:   $('#editProfileBtn'),
+    logout: $('#profileLogoutBtn'),
+  };
+
+  // ---- Current user from localStorage
+  const user = {
+    fullName: localStorage.getItem('userFullName') || localStorage.getItem('username') || '—',
+    email:    localStorage.getItem('userEmail')    || localStorage.getItem('email')    || '—',
+    token:    localStorage.getItem('token') || null,
+  };
+  if (els.name)  els.name.textContent  = user.fullName;
+  if (els.email) els.email.textContent = user.email;
+
+  // ---- Render orders directly into #orderHistory
+  function renderOrders(orders = []) {
+    if (!els.list) return;
+
+    if (!Array.isArray(orders) || orders.length === 0) {
+      els.list.innerHTML = '<p>No orders yet.</p>';
+      return;
+    }
+
+    const rows = orders.map(o => {
+      const id     = o._id || o.id || o.orderId;
+      const date   = new Date(o.createdAt || Date.now()).toLocaleString();
+      const total  = money(o?.totals?.total ?? o.total ?? 0);
+      const status = String(o.status || 'new').toLowerCase();
+
+      return `
+        <div class="order-item" data-id="${id}">
           <div class="order-info">
-            <span class="order-id">Order #${o.id || o.orderId}</span>
-            <span class="order-date">${new Date(o.createdAt || o.created_at || Date.now()).toLocaleString()}</span>
+            <span class="order-id">Order #${id}</span>
+            <span class="order-date">${date}</span>
           </div>
-          <span class="order-total">${money(o?.totals?.total ?? o.total)}</span>
-          <span class="order-status ${statusClass(o.status)}">${(o.status || 'new').toUpperCase()}</span>
-          <a href="#" class="view-details">View Details</a>
+          <span class="order-total">${total}</span>
+          <span class="order-status ${status}">${status.toUpperCase()}</span>
+          <a href="order-success.html?order=${encodeURIComponent(id)}" class="view-details">View Details</a>
         </div>
-      `).join('');
-    };
-  
-    // LocalStorage orders (checkout-ის დროებითი შენახვა)
-    const loadOrdersFromLocal = () => {
-      const all = JSON.parse(localStorage.getItem('orders') || '[]');
-      const mine = all.filter(o => (o.user?.name || 'Guest') === user.fullName);
-      return mine.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
-    };
-  
-    // API first (თუ უკვე გექნება /api/orders/me), სხვაგვარად — local fallback
-    const loadOrders = async () => {
-      if (user.token) {
-        try {
-          const res = await fetch('http://localhost:5000/api/orders/me', {
-            headers: { Authorization: `Bearer ${user.token}` }
-          });
-          if (res.ok) {
-            const list = await res.json();
-            renderOrders(list);
-            return;
-          }
-        } catch { /* ignore, fallback */ }
+      `;
+    }).join('');
+
+    els.list.innerHTML = rows; // <- აღარ ვკრავთ wrapper-ს
+  }
+
+  // ---- Load from API (no-store რომ ქეში არ დარჩეს)
+  async function loadOrders() {
+    if (!user.token || !els.list) {
+      renderOrders([]);
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API}/orders/me`, {
+        headers: { Authorization: `Bearer ${user.token}` },
+        cache: 'no-store',
+      });
+
+      if (!res.ok) {
+        renderOrders([]);
+        return;
       }
-      renderOrders(loadOrdersFromLocal());
-    };
-  
-    loadOrders();
-  
-    // View details (simple alert; შეგიძლია მოგვიანებით მოდალად გადააქციო)
-    els.list?.addEventListener('click', (e) => {
-      const a = e.target.closest('.view-details');
-      if (!a) return;
-      e.preventDefault();
-  
-      const wrap = a.closest('.order-item');
-      const id = wrap?.dataset.id;
-      const pool = loadOrdersFromLocal();
-      const o = pool.find(x => (x.id || x.orderId) === id);
-      if (!o) { alert('Order details unavailable'); return; }
-  
-      const lines = (o.items || []).map(i => `• ${i.title} × ${i.qty} = ${money((i.price||0)*i.qty)}`).join('\n');
-  
-      alert(
-  `Order: ${o.id || o.orderId}
-  Date: ${new Date(o.createdAt).toLocaleString()}
-  Name: ${o.user?.name || user.fullName}
-  Address: ${o.shipping?.address || '-'}, ${o.shipping?.city || ''} ${o.shipping?.zip || ''}
-  Phone: ${o.shipping?.phone || ''}
-  
-  Items:
-  ${lines}
-  
-  Subtotal: ${money(o?.totals?.subtotal)}
-  Shipping: ${money(o?.totals?.shipping)}
-  Total: ${money(o?.totals?.total)}
-  Status: ${(o.status || 'new').toUpperCase()}`
-      );
-    });
-  
-    // Edit (დროებით შეტყობინება)
-    els.edit?.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Editing profile will be enabled after backend is connected.');
-    });
-  
-    // Logout
-    els.logout?.addEventListener('click', (e) => {
-      e.preventDefault();
-      ['token','userFullName','userEmail','username','email'].forEach(k => localStorage.removeItem(k));
-      window.location.href = 'index.html';
-    });
+
+      const data = await res.json();
+      // console.log('orders:', data); // სურვილისამებრ diagnostic
+      renderOrders(Array.isArray(data) ? data : []);
+    } catch (e) {
+      console.error('orders/me error', e);
+      renderOrders([]);
+    }
+  }
+
+  // ---- Edit / Logout
+  els.edit?.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Editing profile will be enabled after backend is connected.');
   });
-  
+
+  els.logout?.addEventListener('click', (e) => {
+    e.preventDefault();
+    ['token','userFullName','userEmail','username','email'].forEach(k => localStorage.removeItem(k));
+    location.href = 'index.html';
+  });
+
+  // მოვიხსენიოთ როგორც DOM load-ზე, ისე პირდაპირაც (საიმედოდ)
+  document.addEventListener('DOMContentLoaded', loadOrders);
+  loadOrders();
+  // სურვილისამებრ: როცა დაბრუნდები გვერდზე, ხელახლა გადაატვირთოს სია
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) loadOrders();
+  });
+})();
