@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="style.css">
         
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 <body>
     <div class="page-wrapper">
@@ -21,8 +21,12 @@
                 </div>
                 
                 <ul class="nav-links">
-                    <li style="--index: 1;"><a href="special-offers.html">Special-Cards</a></li>
-                    <li style="--index: 2;" class="dropdown">
+                    <li class="mobile-auth-container" style="--index: 1;">
+                        <a href="login.html" class="mobile-auth-btn">Log In</a>
+                        <a href="register.html" class="mobile-auth-btn">Register</a>
+                    </li>
+                    <li style="--index: 2;"><a href="special-offers.html">Special-Cards</a></li>
+                    <li style="--index: 3;" class="dropdown">
                         <a href="shop.html" class="dropbtn">Shop</a>
                         <div class="dropdown-content">
                             <a href="shop.html?category=roses">Roses</a>
@@ -32,8 +36,8 @@
                             <a href="shop.html?category=mixed">Mixed</a>
                         </div>
                     </li>
-                    <li style="--index: 3;"><a href="about.html">About</a></li>
-                    <li style="--index: 4;"><a href="contact.html">Contact</a></li>
+                    <li style="--index: 4;"><a href="about.html">About</a></li>
+                    <li style="--index: 5;"><a href="contact.html">Contact</a></li>
                 </ul>
 
                 <div class="nav-actions">

@@ -188,6 +188,12 @@ nav {
   transition: all 0.3s ease;
 }
 
+/* დამალე მობილურის ღილაკების კონტეინერი დესკტოპზე */
+.mobile-auth-container {
+    display: none;
+}
+
+
 /* ========================================= */
 /* ================= FOOTER ================ */
 /* ========================================= */
@@ -367,6 +373,44 @@ footer .social-icons {
   
   .logo-text {
       font-size: 32px;
+  }
+
+  /* მობილურის ღილაკების ჩვენება და გასტილვა */
+  .mobile-auth-container {
+      display: flex;
+      gap: 10px;
+      width: 90%;
+      justify-content: center;
+      margin-bottom: 40px;
+      order: -1; 
+  }
+  
+  .mobile-auth-btn {
+      display: block;
+      flex: 1;
+      padding: 6px 8px;
+      font-size: 13px; 
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid #d4af37;
+      transition: background-color 0.3s, color 0.3s;
+      text-decoration: none; /* დავამატეთ, რომ ლინკს ხაზი არ ჰქონდეს */
+  }
+
+  .mobile-auth-btn:first-child {
+      color: #d4af37;
+      background-color: transparent;
+  }
+
+  .mobile-auth-btn:last-child {
+      color: #0d0d0d;
+      background-color: #d4af37;
+  }
+
+  .mobile-auth-btn:hover {
+      background-color: #b8972e;
+      color: #0d0d0d !important;
   }
 }
 
